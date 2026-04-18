@@ -1,0 +1,82 @@
+A constructor in Java is a special block of code used to initialize objects when they are created. It is invoked automatically using the new keyword, and its primary purpose is to ensure that the newly created object starts in a valid and consistent state by assigning initial values to its instance variables. 
+Key Characteristics:
+Same Name as Class: A constructor's name must exactly match the name of the class in which it is defined.
+No Return Type: Constructors do not have a return type, not even void.
+Automatic Invocation: They are called implicitly by the Java runtime whenever an object instance is created using the new operator.
+Cannot be Inherited: Constructors cannot be inherited by subclasses, though a child class constructor can call a parent class constructor using the super() keyword.
+Can be Overloaded: A class can have multiple constructors with different parameter lists, a concept known as constructor overloading. 
+W3Schools
+W3Schools
+ +5
+Types of Constructors
+There are three main types of constructors in Java:   
+BeginnersBook
+BeginnersBook
+ +1
+Default Constructor: If you do not explicitly define any constructors in a class, the Java compiler automatically provides a public, no-argument constructor that initializes instance variables with their default values (e.g., 0 for int, null for String).
+No-Argument (No-Args) Constructor: This is a constructor that you explicitly write in your code and takes no parameters. You can add custom initialization logic within its body, unlike the implicit default constructor.
+Parameterized Constructor: This constructor accepts one or more parameters. It is used to initialize an object's fields with specific, user-defined values provided at the time of object creation, ensuring the object starts with the required state. 
+W3Schools
+W3Schools
+ +4
+Example
+Here is an example demonstrating different constructors in a Car class:
+java
+public class Car {
+    String modelName;
+    int modelYear;
+
+    // No-args constructor
+    public Car() {
+        this.modelName = "Unknown";
+        this.modelYear = 0;
+    }
+
+    // Parameterized constructor
+    public Car(String name, int year) {
+        this.modelName = name;
+        this.modelYear = year;
+    }
+
+    public static void main(String[] args) {
+        // Creates object using the no-args constructor
+        Car myCar1 = new Car();
+        System.out.println("Model: " + myCar1.modelName + ", Year: " + myCar1.modelYear);
+
+        // Creates object using the parameterized constructor
+        Car myCar2 = new Car("Mustang", 1969);
+        System.out.println("Model: " + myCar2.modelName + ", Year: " + myCar2.modelYear);
+    }
+}
+ 
+W3Schools
+W3Schools
+ +1
+Output:
+Model: Unknown, Year: 0
+Model: Mustang, Year: 1969
+
+
+The super keyword in Java is a reference variable used in inheritance to directly access the immediate parent class’s members (methods, fields, and constructors). It is primarily used to eliminate ambiguity between child and parent members, invoke parent constructors (super()), and execute overridden methods.
+
+Key Uses of super Keyword:
+Calling Parent Constructors: super() can be used to explicitly call a parent class constructor, which must be the first statement in a subclass constructor.
+Accessing Parent Methods: It allows a subclass to call a method from the parent class that has been overridden in the subclass.
+Accessing Parent Variables: It enables accessing parent class fields (variables) that might be hidden or shadowed by the subclass. 
+
+Why it is used:
+Constructor Chaining: Ensures proper initialization of parent class members before child class initialization.
+Method Overriding: Enables invoking the original method implementation from the parent class.
+Code Reusability: Prevents code duplication by reusing parent class logic rather than rewriting it.
+
+Example:
+class Animal {
+    void sound() { System.out.println("Animal makes a sound"); }
+}
+class Dog extends Animal {
+    void sound() { System.out.println("Dog barks"); }
+    void display() {
+        super.sound(); // Calls parent class method [1, 5]
+        sound();       // Calls current class method
+    }
+}
