@@ -1,6 +1,6 @@
 package PatternsFinal;
 
-public class ZigZagNumber {
+public class ZigZagNumber1 {
   public static void main(String[] args) {
     int n = 5;
     int num =1;
