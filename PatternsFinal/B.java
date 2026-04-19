@@ -1,17 +1,34 @@
 package PatternsFinal;
 
 public class B {
-  public static void main(String[] args) {
-    int n =5;
+  
+    public static void main(String[] args) {
 
-    for(int i=1;i<= n; i++){
-      for(int j=1;j<=n-i;j++)
-        System.out.print("  ");
+         char ch = 'A';
 
-      for(int k=1;k<=i;k++)
-        System.out.print(i+" ");
+        int[] spaces = {5, 3, 2, 1};
+        int[] letters = {1, 2, 2, 7};
 
-      System.out.println();
+        for (int i = 0; i < 4; i++) {
+
+            // print leading spaces
+            for (int s = 1; s <= spaces[i]; s++) {
+                System.out.print(" ");
+            }
+
+            // print letters + symbols
+            for (int j = 1; j <= letters[i]; j++) {
+
+                System.out.print(ch);
+                ch++;
+
+                if (i == 1 && j == 1) System.out.print("--");
+                if (i == 2 && j == 1) System.out.print("---");
+                if (i == 3 && j < letters[i]) System.out.print(" ");
+            }
+
+            System.out.println();
+        }
     }
-  }
+
 }
